@@ -1,0 +1,98 @@
+buildscript 
+{
+    repositories 
+    {
+        jcenter()
+        maven {
+            name = "forge"
+            url = "http://files.minecraftforge.net/maven"
+        }
+    }
+    
+    dependencies 
+    {
+        classpath 'net.minecraftforge.gradle:ForgeGradle:2.2-SNAPSHOT'
+    }
+}
+
+apply plugin: 'net.minecraftforge.gradle.forge'
+
+group = "mchorse.mclib"
+archivesBaseName = "mclib"
+sourceCompatibility = targetCompatibility = "1.8"
+
+compileJava 
+{
+    sourceCompatibility = targetCompatibility = "1.8"
+}
+
+/* Minecraft configuration */
+
+minecraft 
+{
+    version = "${mc_version}-${forge_version}"
+    runDir = "run"
+    mappings = snapshot
+    
+    clientJvmArgs = ["-Xmx1G", "-Dfml.coreMods.load=" + coremodPath]
+    serverJvmArgs = ["-Xmx1G"]
+    
+    replace "%VERSION%", project.version
+    replace "%MCLIB%", project.mclib
+}
+
+dependencies 
+{
+	compile files("run/libs/mclib-${mclib}-${project.minecraft.version}-dev.jar")
+}
+
+eclipse
+{
+    classpath
+    {
+        file
+        {
+            whenMerged
+            { classpath -> 
+                def ver = project.minecraft.version
+                /* Fucking gradle 2.14 doesn't have fileReference() method,
+                 * screw you piece of shit */
+                def getMeReference = { File file ->
+                	return [
+                		getFile: { return file },
+                		getPath: { return file.getAbsolutePath() },
+                		getJarURL: { return file.getAbsolutePath() },
+                		isRelativeToPathVariable: { return false }
+                	] as org.gradle.plugins.ide.eclipse.model.FileReference
+                }
+                
+                def lib = entries.find { it.path.contains "mclib-${mclib}" } 
+                lib.sourcePath = getMeReference(file("run/libs/mclib-${mclib}-${ver}-sources.jar"))
+            }
+        }
+    }
+}
+
+jar {
+   manifest {
+       attributes 'FMLCorePlugin': coremodPath, 'FMLCorePluginContainsFMLMod': 'true'
+   }
+}
+
+processResources
+{
+    inputs.property "version", project.version
+    inputs.property "mcversion", project.minecraft.version
+
+	project.version += "-" + project.minecraft.version
+
+    from(sourceSets.main.resources.srcDirs) {
+        include 'mcmod.info'
+                
+        expand 'version':project.version, 'mcversion':project.minecraft.version
+    }
+        
+    from(sourceSets.main.resources.srcDirs) {
+        exclude 'mcmod.info'
+    }
+}

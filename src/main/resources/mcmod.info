@@ -1,0 +1,12 @@
+[
+    {
+        "modid": "extendedreach",
+        "name": "Extended Reach",
+        "description": "",
+        "version": "${version}",
+        "mcversion": "${mcversion}",
+        "url": "https://minecraft.curseforge.com/projects/extended-reach/",
+        "updateJSON": "https://raw.githubusercontent.com/mchorse/extendedreach/master/version.json",
+        "authorList": ["mchorse"]
+    }
+]
