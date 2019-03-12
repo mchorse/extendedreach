@@ -1,6 +1,7 @@
 package mchorse.extendedreach.core;
 
 import mchorse.extendedreach.core.transformers.EntityRendererTransformer;
+import mchorse.extendedreach.core.transformers.ItemTransformer;
 import mchorse.extendedreach.core.transformers.NetHandlerPlayServerTransformer;
 import mchorse.extendedreach.core.transformers.PlayerControllerMPTransformer;
 import mchorse.extendedreach.core.transformers.PlayerInteractionManagerTransformer;
@@ -12,6 +13,7 @@ public class ExtendedReachCMClassTransformer extends CoreClassTransformer
     private PlayerInteractionManagerTransformer playerInteractionManager = new PlayerInteractionManagerTransformer();
     private EntityRendererTransformer entityRenderer = new EntityRendererTransformer();
     private NetHandlerPlayServerTransformer netHandlerPlayServer = new NetHandlerPlayServerTransformer();
+    private ItemTransformer item = new ItemTransformer();
 
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass)
@@ -39,6 +41,12 @@ public class ExtendedReachCMClassTransformer extends CoreClassTransformer
             System.out.println("Extended Reach: Transforming NetHandlerPlayServer class (" + name + ")");
 
             return this.netHandlerPlayServer.transform(name, basicClass);
+        }
+        else if (checkName(name, "", "net.minecraft.item.Item"))
+        {
+            System.out.println("Extended Reach: Transforming Item class (" + name + ")");
+
+            return this.item.transform(name, basicClass);
         }
 
         return basicClass;

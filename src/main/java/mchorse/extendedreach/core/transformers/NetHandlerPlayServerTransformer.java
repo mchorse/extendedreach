@@ -24,6 +24,10 @@ public class NetHandlerPlayServerTransformer extends ClassTransformer
             {
                 this.processGetMouseOver(method);
             }
+            else
+            {
+                ItemTransformer.processBlockReach(method);
+            }
         }
     }
 
