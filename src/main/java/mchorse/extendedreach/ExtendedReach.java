@@ -10,9 +10,9 @@ import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 
 /**
- * McLib mod
+ * Extended reach mod
  * 
- * All it does is provides common code for McHorse's mods.
+ * Allows player to have a configurable reach
  */
 @Mod.EventBusSubscriber
 @Mod(modid = ExtendedReach.MOD_ID, name = "ExtendedReach", version = ExtendedReach.VERSION, guiFactory = ExtendedReach.GUI_FACTORY, dependencies = "required-after:mclib@[%MCLIB%,)", updateJSON = "https://raw.githubusercontent.com/mchorse/extendedreach/master/version.json")

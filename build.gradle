@@ -17,8 +17,8 @@ buildscript
 
 apply plugin: 'net.minecraftforge.gradle.forge'
 
-group = "mchorse.mclib"
-archivesBaseName = "mclib"
+group = "mchorse.extendedreach"
+archivesBaseName = "extendedreach"
 sourceCompatibility = targetCompatibility = "1.8"
 
 compileJava 
