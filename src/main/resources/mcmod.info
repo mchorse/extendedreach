@@ -2,7 +2,7 @@
     {
         "modid": "extendedreach",
         "name": "Extended Reach",
-        "description": "",
+        "description": "Allows player to configure the block, item or entity reach",
         "version": "${version}",
         "mcversion": "${mcversion}",
         "url": "https://minecraft.curseforge.com/projects/extended-reach/",

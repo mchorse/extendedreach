@@ -8,7 +8,7 @@ import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.Name;
 import net.minecraftforge.fml.relauncher.IFMLLoadingPlugin.SortingIndex;
 
 @Name("Extended Reach core mod")
-@MCVersion("1.10.2")
+@MCVersion("1.11.2")
 @SortingIndex(1)
 public class ExtendedReachCM implements IFMLLoadingPlugin
 {
