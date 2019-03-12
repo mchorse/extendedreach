@@ -38,7 +38,9 @@ public class GuiConfig extends net.minecraftforge.fml.client.config.GuiConfig
 
             for (Property prop : category.getOrderedValues())
             {
-                elements.add(new ConfigElement(prop));
+                ConfigElement element = new ConfigElement(prop);
+
+                elements.add(element);
             }
         }
 
