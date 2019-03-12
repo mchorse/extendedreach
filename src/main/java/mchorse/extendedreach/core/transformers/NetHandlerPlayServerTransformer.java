@@ -18,7 +18,7 @@ public class NetHandlerPlayServerTransformer extends ClassTransformer
     {
         for (MethodNode method : node.methods)
         {
-            String methodName = this.checkName(method, "a", "(Liu;)V", "processUseEntity", "(Lnet/minecraft/network/play/client/CPacketUseEntity;)V");
+            String methodName = this.checkName(method, "a", "(Lix;)V", "processUseEntity", "(Lnet/minecraft/network/play/client/CPacketUseEntity;)V");
 
             if (methodName != null)
             {

@@ -16,25 +16,25 @@ public class ExtendedReachCMClassTransformer extends CoreClassTransformer
     @Override
     public byte[] transform(String name, String transformedName, byte[] basicClass)
     {
-        if (checkName(name, "blm", "net.minecraft.client.multiplayer.PlayerControllerMP"))
+        if (checkName(name, "bnp", "net.minecraft.client.multiplayer.PlayerControllerMP"))
         {
             System.out.println("Extended Reach: Transforming PlayerControllerMP class (" + name + ")");
 
             return this.playerControllerMP.transform(name, basicClass);
         }
-        else if (checkName(name, "lv", "net.minecraft.server.management.PlayerInteractionManager"))
+        else if (checkName(name, "lz", "net.minecraft.server.management.PlayerInteractionManager"))
         {
             System.out.println("Extended Reach: Transforming PlayerInteractionManager class (" + name + ")");
 
             return this.playerInteractionManager.transform(name, basicClass);
         }
-        else if (checkName(name, "bnz", "net.minecraft.client.renderer.EntityRenderer"))
+        else if (checkName(name, "bqe", "net.minecraft.client.renderer.EntityRenderer"))
         {
             System.out.println("Extended Reach: Transforming EntityRenderer class (" + name + ")");
 
             return this.entityRenderer.transform(name, basicClass);
         }
-        else if (checkName(name, "me", "net.minecraft.network.NetHandlerPlayServer"))
+        else if (checkName(name, "im", "net.minecraft.network.NetHandlerPlayServer"))
         {
             System.out.println("Extended Reach: Transforming NetHandlerPlayServer class (" + name + ")");
 
