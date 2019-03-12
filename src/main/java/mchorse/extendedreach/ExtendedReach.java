@@ -12,7 +12,7 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
 /**
  * Extended reach mod
  * 
- * Allows player to have a configurable reach
+ * Allows player to configure the block, item or entity reach
  */
 @Mod.EventBusSubscriber
 @Mod(modid = ExtendedReach.MOD_ID, name = "ExtendedReach", version = ExtendedReach.VERSION, guiFactory = ExtendedReach.GUI_FACTORY, dependencies = "required-after:mclib@[%MCLIB%,)", updateJSON = "https://raw.githubusercontent.com/mchorse/extendedreach/master/version.json")
