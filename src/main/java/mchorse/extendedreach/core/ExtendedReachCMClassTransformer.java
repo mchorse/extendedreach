@@ -34,7 +34,7 @@ public class ExtendedReachCMClassTransformer extends CoreClassTransformer
 
             return this.entityRenderer.transform(name, basicClass);
         }
-        else if (checkName(name, "im", "net.minecraft.network.NetHandlerPlayServer"))
+        else if (checkName(name, "mi", "net.minecraft.network.NetHandlerPlayServer"))
         {
             System.out.println("Extended Reach: Transforming NetHandlerPlayServer class (" + name + ")");
 
