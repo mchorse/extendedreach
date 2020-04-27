@@ -25,7 +25,7 @@ public class ExtendedReachConfig
 
     public void reload()
     {
-        this.reach_distance = this.config.getFloat("reach_distance", Configuration.CATEGORY_GENERAL, 5.0F, 5.0F, 1024.0F, "How far the player can interact with world (items, blocks and entities)", "extendedreach.config.props.reach_distance");
+        this.reach_distance = this.config.getFloat("reach_distance", Configuration.CATEGORY_GENERAL, 5.0F, 0.0F, 1024.0F, "How far the player can interact with world (items, blocks and entities)", "extendedreach.config.props.reach_distance");
 
         if (this.config.hasChanged())
         {
