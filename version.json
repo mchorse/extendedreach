@@ -1,20 +1,23 @@
 {
     "homepage": "https://minecraft.curseforge.com/projects/extended-reach/",
     "1.10.2": {
-    	"1.0": "Initial release."
+    	"1.0": "Initial release.",
+        "1.0.1": "Changed the minimum cap from 5.0 to 0.0"
     },
     "1.11.2": {
-    	"1.0": "Initial release."
+    	"1.0": "Initial release.",
+        "1.0.1": "Changed the minimum cap from 5.0 to 0.0"
     },
     "1.12.2": {
-    	"1.0": "Initial release."
+    	"1.0": "Initial release.",
+        "1.0.1": "Changed the minimum cap from 5.0 to 0.0"
     },
     "promos": {
-        "1.10.2-latest": "1.0",
-        "1.10.2-recommended": "1.0",
-        "1.11.2-latest": "1.0",
-        "1.11.2-recommended": "1.0",
-        "1.12.2-latest": "1.0",
-        "1.12.2-recommended": "1.0"
+        "1.10.2-latest": "1.0.1",
+        "1.10.2-recommended": "1.0.1",
+        "1.11.2-latest": "1.0.1",
+        "1.11.2-recommended": "1.0.1",
+        "1.12.2-latest": "1.0.1",
+        "1.12.2-recommended": "1.0.1"
     }
 }
