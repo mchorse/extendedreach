@@ -47,7 +47,7 @@ public class EntityRendererTransformer extends ClassTransformer
             {
                 LdcInsnNode ldc = (LdcInsnNode) node;
 
-                if (ldc.cst.equals(Double.valueOf(6.0D)))
+                if (ldc.cst.equals(6.0D))
                 {
                     it.remove();
                     found = true;

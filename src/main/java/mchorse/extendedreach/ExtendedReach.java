@@ -1,13 +1,15 @@
 package mchorse.extendedreach;
 
-import java.io.File;
-
-import mchorse.extendedreach.config.ExtendedReachConfig;
-import net.minecraftforge.common.MinecraftForge;
-import net.minecraftforge.common.config.Configuration;
+import mchorse.mclib.McLib;
+import mchorse.mclib.config.ConfigBuilder;
+import mchorse.mclib.config.values.ValueBoolean;
+import mchorse.mclib.config.values.ValueDouble;
+import mchorse.mclib.config.values.ValueFloat;
+import mchorse.mclib.events.RegisterConfigEvent;
 import net.minecraftforge.fml.common.Mod;
 import net.minecraftforge.fml.common.Mod.EventHandler;
 import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
+import net.minecraftforge.fml.common.eventhandler.SubscribeEvent;
 
 /**
  * Extended reach mod
@@ -15,24 +17,26 @@ import net.minecraftforge.fml.common.event.FMLPreInitializationEvent;
  * Allows player to configure the block, item or entity reach
  */
 @Mod.EventBusSubscriber
-@Mod(modid = ExtendedReach.MOD_ID, name = "ExtendedReach", version = ExtendedReach.VERSION, guiFactory = ExtendedReach.GUI_FACTORY, dependencies = "required-after:mclib@[%MCLIB%,)", updateJSON = "https://raw.githubusercontent.com/mchorse/extendedreach/master/version.json")
+@Mod(modid = ExtendedReach.MOD_ID, name = "ExtendedReach", version = ExtendedReach.VERSION, dependencies = "required-after:mclib@[%MCLIB%,)", updateJSON = "https://raw.githubusercontent.com/mchorse/extendedreach/master/version.json")
 public class ExtendedReach
 {
     public static final String MOD_ID = "extendedreach";
     public static final String VERSION = "%VERSION%";
-    public static final String GUI_FACTORY = "mchorse.extendedreach.config.GuiFactory";
 
-    public static ExtendedReachConfig config;
-    public static Configuration forge;
+    public static ValueFloat reach;
+
+    @SubscribeEvent
+    public void onConfigRegister(RegisterConfigEvent event)
+    {
+        ConfigBuilder builder = event.createBuilder(MOD_ID);
+
+        reach = builder.category("general").getFloat("reach", 5F, 0F, 1024F);
+        reach.syncable();
+    }
 
     @EventHandler
     public void preInit(FMLPreInitializationEvent event)
     {
-        File file = new File(event.getModConfigurationDirectory(), "extendedreach.cfg");
-
-        forge = new Configuration(file);
-        config = new ExtendedReachConfig(forge);
-
-        MinecraftForge.EVENT_BUS.register(config);
+        McLib.EVENT_BUS.register(this);
     }
 }

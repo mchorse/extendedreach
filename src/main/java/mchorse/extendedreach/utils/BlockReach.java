@@ -11,7 +11,7 @@ public class BlockReach
 {
     public static float getReach()
     {
-        return ExtendedReach.config.reach_distance;
+        return ExtendedReach.reach.get();
     }
 
     public static double getDoubleReach()

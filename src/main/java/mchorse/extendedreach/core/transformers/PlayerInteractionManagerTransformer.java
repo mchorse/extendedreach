@@ -12,7 +12,6 @@ public class PlayerInteractionManagerTransformer extends ClassTransformer
     {
         for (MethodNode method : node.methods)
         {
-            // System.out.println("Extended Reach: trying " + method.name + " for REACH_DISTANCE!");
             ItemTransformer.processBlockReach(method);
         }
     }
