@@ -1,6 +1,7 @@
 {
     "homepage": "https://minecraft.curseforge.com/projects/extended-reach/",
     "1.10.2": {
+        "1.1.1": "Updated to work with McLib 2.4.1.",
     	"1.0": "Initial release."
     },
     "1.11.2": {
@@ -14,7 +15,7 @@
         "1.10.2-recommended": "1.0",
         "1.11.2-latest": "1.0",
         "1.11.2-recommended": "1.0",
-        "1.12.2-latest": "1.0",
-        "1.12.2-recommended": "1.0"
+        "1.12.2-latest": "1.1.1",
+        "1.12.2-recommended": "1.1.1"
     }
 }
